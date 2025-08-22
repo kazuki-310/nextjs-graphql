@@ -1,0 +1,36 @@
+{
+	"name": "nextjs-graphql",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev --turbo",
+		"build": "next build --turbo",
+		"start": "next start",
+		"check:lint": "biome lint .",
+		"check:format": "biome format .",
+		"check": "biome check .",
+		"fix": "biome check --write --unsafe ."
+	},
+	"dependencies": {
+		"clsx": "^2.1.1",
+		"next": "15.5.0",
+		"react": "^19.1.1",
+		"react-dom": "^19.1.1",
+		"server-only": "^0.0.1",
+		"tailwind-merge": "^2.6.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@tailwindcss/postcss": "^4.0.0",
+		"@types/node": "^22.10.10",
+		"@types/react": "^19.0.8",
+		"@types/react-dom": "^19.0.3",
+		"babel-plugin-react-compiler": "19.0.0-beta-decd7b8-20250118",
+		"postcss": "^8.5.1",
+		"tailwindcss": "^4.0.0",
+		"typescript": "5.7.3"
+	},
+	"postcss": {
+		"plugins": ["@tailwindcss/postcss"]
+	}
+}
