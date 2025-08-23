@@ -30,6 +30,32 @@
 - **ルートグループ**: `()` で囲む
   - `(auth)/` - 認証関連ページ
 
+## Import文の規約
+
+### パス記述ルール
+
+- **必ずエイリアスパス `~/` を使用する**
+  ```typescript
+  // ✅ 推奨
+  import { UserList } from "~/app/graphql-single-request/_components/user-list";
+  import { getClient } from "~/lib/apollo-client";
+  import { GetUsersDocument } from "~/graphql/generated/graphql";
+
+  // ❌ 避けるべき
+  import { UserList } from "../_components/user-list";
+  import { UserList } from "./components/user-list";
+  ```
+
+- **相対パス（`../`, `./`）は使用禁止**
+  - プロジェクト全体で一貫性を保つため
+  - ファイル移動時のメンテナンス性向上のため
+  - IDEでの自動補完とリファクタリング支援のため
+
+### 適用範囲
+- すべてのTypeScript/JSXファイル
+- 内部モジュールのimport時
+- 外部ライブラリは除く（`react`, `next`等）
+
 ## TypeScript
 
 ### 型定義
