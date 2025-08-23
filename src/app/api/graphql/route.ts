@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { ApolloServer } from "@apollo/server";
 import { startServerAndCreateNextHandler } from "@as-integrations/next";
+import type { NextRequest } from "next/server";
 import type { Post, User } from "~/graphql/generated/graphql";
 
 const typeDefs = readFileSync(
@@ -77,10 +78,7 @@ const resolvers = {
 		},
 	},
 	Mutation: {
-		createUser: (
-			_: unknown,
-			args: { name: string; email: string },
-		): User => {
+		createUser: (_: unknown, args: { name: string; email: string }): User => {
 			const newUser: User = {
 				id: String(users.length + 1),
 				name: args.name,
@@ -124,6 +122,14 @@ const server = new ApolloServer({
 	resolvers,
 });
 
-const handler = startServerAndCreateNextHandler(server);
+const handler = startServerAndCreateNextHandler(server, {
+	context: async (req: NextRequest): Promise<{ req: NextRequest }> => ({ req }),
+});
 
-export { handler as GET, handler as POST };
+export async function GET(request: NextRequest): Promise<Response> {
+	return await handler(request);
+}
+
+export async function POST(request: NextRequest): Promise<Response> {
+	return await handler(request);
+}
