@@ -1,6 +1,4 @@
-import { type JSX, Suspense } from "react";
-import { LoadingSingleRequest } from "~/app/graphql-single-request/_components/loading";
-import { UsersContainer } from "~/app/graphql-single-request/_containers/users-container";
+import { type JSX } from "react";
 
 export default function GraphQlSingleRequestPage(): JSX.Element {
 	return (
@@ -9,9 +7,9 @@ export default function GraphQlSingleRequestPage(): JSX.Element {
 				GraphQL Single Request (Server Component)
 			</h1>
 
-			<Suspense fallback={<LoadingSingleRequest />}>
+			{/* <Suspense fallback={<LoadingSingleRequest />}>
 				<UsersContainer />
-			</Suspense>
+			</Suspense> */}
 		</div>
 	);
 }

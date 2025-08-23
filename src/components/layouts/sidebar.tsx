@@ -38,7 +38,6 @@ export function Sidebar(): JSX.Element {
 									pathname === link.href
 										? "bg-blue-50 text-blue-600"
 										: "text-gray-700 hover:bg-gray-200",
-									link.href === "/" && "font-medium",
 								)}
 							>
 								{link.label}
