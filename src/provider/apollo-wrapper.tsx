@@ -1,4 +1,5 @@
 "use client";
+import { env } from "~/env.mjs";
 
 import { HttpLink } from "@apollo/client";
 import {
@@ -7,11 +8,10 @@ import {
 	InMemoryCache,
 } from "@apollo/client-integration-nextjs";
 import type { JSX } from "react";
-import { getGraphQlUrl } from "~/lib/apollo-client";
 
 function makeClient(): ApolloClient {
 	const httpLink = new HttpLink({
-		uri: getGraphQlUrl(),
+		uri: env.NEXT_PUBLIC_API_URL,
 	});
 
 	return new ApolloClient({
