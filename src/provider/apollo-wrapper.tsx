@@ -7,10 +7,11 @@ import {
 	InMemoryCache,
 } from "@apollo/client-integration-nextjs";
 import type { JSX } from "react";
+import { getGraphQlUrl } from "~/lib/apollo-client";
 
 function makeClient(): ApolloClient {
 	const httpLink = new HttpLink({
-		uri: "http://localhost:3000/api/graphql",
+		uri: getGraphQlUrl(),
 	});
 
 	return new ApolloClient({

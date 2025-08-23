@@ -43,8 +43,6 @@
 		"typescript": "5.7.3"
 	},
 	"postcss": {
-		"plugins": [
-			"@tailwindcss/postcss"
-		]
+		"plugins": ["@tailwindcss/postcss"]
 	}
 }
