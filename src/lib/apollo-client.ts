@@ -2,11 +2,9 @@ import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
 import { registerApolloClient } from "@apollo/client-integration-nextjs";
 
 export const getGraphQlUrl = (): string => {
-	if (process.env.NODE_ENV === "production") {
-		return "https://nextjs-graphql-xi.vercel.app/api/graphql";
-	}
-
-	return "http://localhost:3000/api/graphql";
+	return (
+		process.env.NEXT_PUBLIC_GRAPHQL_URL || "http://localhost:3000/api/graphql"
+	);
 };
 
 export const { getClient } = registerApolloClient(() => {
