@@ -1,6 +1,5 @@
 import "~/css/globals.css";
 import { Sidebar } from "~/components/layouts/sidebar";
-import { ApolloWrapper } from "~/provider/apollo-wrapper";
 
 export default function RootLayout({
 	children,
@@ -8,12 +7,10 @@ export default function RootLayout({
 	return (
 		<html lang="ja" suppressHydrationWarning={true}>
 			<body suppressHydrationWarning={true}>
-				<ApolloWrapper>
-					<div className="flex h-screen">
-						<Sidebar />
-						<main className="flex-1 p-8">{children}</main>
-					</div>
-				</ApolloWrapper>
+				<div className="flex h-screen">
+					<Sidebar />
+					<main className="flex-1 p-8">{children}</main>
+				</div>
 			</body>
 		</html>
 	);

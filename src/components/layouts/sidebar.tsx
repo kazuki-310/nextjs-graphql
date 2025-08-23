@@ -15,7 +15,6 @@ const NAVIGATION_LINKS: NavigationLink[] = [
 	{ href: "/graphql-single-request", label: "Single Request" },
 	{ href: "/graphql-multi-request", label: "Multi Request" },
 	{ href: "/graphql-cache-option", label: "Cache Option" },
-	{ href: "/graphql-client", label: "Client Component" },
 ];
 
 export function Sidebar(): JSX.Element {
