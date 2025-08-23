@@ -8,12 +8,6 @@ type UserListProps = {
 export function UserList({ users }: UserListProps): JSX.Element {
 	return (
 		<>
-			<div className="mb-6 rounded bg-purple-100 p-4">
-				<p className="font-semibold text-purple-800">
-					🔄 キャッシュ戦略適用済み
-				</p>
-			</div>
-
 			<div className="mb-4 space-y-2 text-sm">
 				<div className="rounded border-yellow-400 border-l-4 bg-yellow-50 p-3">
 					<p>

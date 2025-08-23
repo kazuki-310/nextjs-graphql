@@ -1,5 +1,5 @@
 import type { JSX } from "react";
-import { PostList } from "~/app/graphql-multi-request/_components/post-list";
+import { PostList } from "~/app/graphql-no-store/_components/post-list";
 import {
 	GetPostsDocument,
 	type GetPostsQuery,
@@ -9,7 +9,11 @@ import { getClient } from "~/lib/apollo-client";
 export async function PostsContainer(): Promise<JSX.Element> {
 	const { data, error } = await getClient().query<GetPostsQuery>({
 		query: GetPostsDocument,
-		fetchPolicy: "no-cache",
+		context: {
+			fetchOptions: {
+				cache: "no-store",
+			},
+		},
 	});
 
 	if (error) {

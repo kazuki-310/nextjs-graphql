@@ -1,5 +1,5 @@
 import type { JSX } from "react";
-import { UserList } from "~/app/graphql-single-request/_components/user-list";
+import { UserList } from "~/app/graphql-force-cache/_components/user-list";
 import {
 	GetUsersDocument,
 	type GetUsersQuery,
@@ -11,7 +11,7 @@ export async function UsersContainer(): Promise<JSX.Element> {
 		query: GetUsersDocument,
 		context: {
 			fetchOptions: {
-				cache: "no-cache",
+				cache: "force-cache",
 			},
 		},
 	});
