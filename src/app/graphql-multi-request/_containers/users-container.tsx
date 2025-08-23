@@ -9,6 +9,11 @@ import { getClient } from "~/lib/apollo-client";
 export async function UsersContainer(): Promise<JSX.Element> {
 	const { data, error } = await getClient().query<GetUsersQuery>({
 		query: GetUsersDocument,
+		context: {
+			fetchOptions: {
+				cache: "no-cache",
+			},
+		},
 	});
 
 	if (error) {

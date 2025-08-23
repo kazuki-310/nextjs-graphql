@@ -9,6 +9,7 @@ import { getClient } from "~/lib/apollo-client";
 export async function PostsContainer(): Promise<JSX.Element> {
 	const { data, error } = await getClient().query<GetPostsQuery>({
 		query: GetPostsDocument,
+		fetchPolicy: "no-cache",
 	});
 
 	if (error) {

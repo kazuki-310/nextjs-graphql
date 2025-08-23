@@ -12,9 +12,6 @@ export function UserList({ users }: UserListProps): JSX.Element {
 				<p className="font-semibold text-purple-800">
 					🔄 キャッシュ戦略適用済み
 				</p>
-				<p className="text-purple-600 text-sm">
-					cache: "force-cache" + revalidate: 10秒
-				</p>
 			</div>
 
 			<div className="mb-4 space-y-2 text-sm">
@@ -26,9 +23,6 @@ export function UserList({ users }: UserListProps): JSX.Element {
 						<li>
 							• <code>cache: "force-cache"</code> - 積極的キャッシュ利用
 						</li>
-						<li>
-							• <code>revalidate: 10</code> - 10秒間隔で自動再検証
-						</li>
 					</ul>
 				</div>
 			</div>
@@ -38,13 +32,6 @@ export function UserList({ users }: UserListProps): JSX.Element {
 				<pre className="overflow-x-auto text-sm">
 					{JSON.stringify({ users }, null, 2)}
 				</pre>
-			</div>
-
-			<div className="mt-6 text-gray-600 text-sm">
-				<p>
-					このページを連続でリロードすると、最初の10秒間はキャッシュされたデータが表示されます。
-					10秒後に自動的に再検証が実行されます。
-				</p>
 			</div>
 		</>
 	);

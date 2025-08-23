@@ -12,7 +12,6 @@ export async function UsersContainer(): Promise<JSX.Element> {
 		context: {
 			fetchOptions: {
 				cache: "force-cache",
-				next: { revalidate: 10 },
 			},
 		},
 	});
