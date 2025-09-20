@@ -14,6 +14,7 @@ type NavigationLink = {
 const NAVIGATION_LINKS: NavigationLink[] = [
 	{ href: "/graphql-no-store", label: "No Store" },
 	{ href: "/graphql-force-cache", label: "Force Cache" },
+	{ href: "/client-fetch", label: "Client Fetch" },
 ];
 
 export function Sidebar(): JSX.Element {

@@ -4,10 +4,10 @@ import {
 	GetPostsDocument,
 	type GetPostsQuery,
 } from "~/graphql/generated/graphql";
-import { getClient } from "~/lib/apollo-client";
+import { query } from "~/lib/apollo-client";
 
 export async function PostsContainer(): Promise<JSX.Element> {
-	const { data, error } = await getClient().query<GetPostsQuery>({
+	const { data, error } = await query<GetPostsQuery>({
 		query: GetPostsDocument,
 		context: {
 			fetchOptions: {

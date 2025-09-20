@@ -2,7 +2,13 @@
 
 Next.js App Router と Apollo を使用した React Server Components で fetch を行うデモンストレーションです。
 
-demo: https://nextjs-graphql-xi.vercel.app/
+- [demo](https://nextjs-graphql-xi.vercel.app/)
+
+- [apollo-client-integrations](https://github.com/apollographql/apollo-client-integrations/tree/main/packages/nextjs)
+
+- [@apollo/client-integration-nextjs Officially Released Lenz Weber-Tronic](https://www.apollographql.com/blog/apollo-client-integration-nextjs-officially-released)
+
+
 
 ## 技術スタック
 
@@ -19,13 +25,11 @@ demo: https://nextjs-graphql-xi.vercel.app/
 - **キャッシュオプション**: `no-store`
 - **動作**: 毎回サーバーからデータを取得
 - **ビルド時の分類**: Dynamic (ƒ)
-- **用途**: リアルタイム性が重要なデータの取得
 
 ### `/graphql-force-cache`
 - **キャッシュオプション**: `force-cache`
 - **動作**: データをキャッシュして再利用
 - **ビルド時の分類**: Static (○)
-- **用途**: 変更頻度の低い静的データの取得
 
 ## キャッシュ動作の比較Next.js App RouterでRSCからGraphQLを呼ぶ
 ### Apollo Client との統合
@@ -54,12 +58,3 @@ const { data, error } = await getClient().query<GetUsersQuery>({
 });
 ```
 
-### ビルド時の確認方法
-
-```bash
-pnpm build
-```
-
-実行後の出力で確認できます：
-- `○` Static: ビルド時に静的生成（キャッシュされている）
-- `ƒ` Dynamic: リクエスト毎に動的生成（キャッシュなし）

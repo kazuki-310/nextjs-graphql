@@ -1,11 +1,8 @@
 import type { JSX } from "react";
 import { Suspense } from "react";
-import {
-	LoadingPosts,
-	LoadingUsers,
-} from "~/app/graphql-no-store/_components/loading";
 import { PostsContainer } from "~/app/graphql-no-store/_containers/posts-container";
 import { UsersContainer } from "~/app/graphql-no-store/_containers/users-container";
+import Loading from "~/app/graphql-no-store/loading";
 
 export default function GraphQlNoCachePage(): JSX.Element {
 	return (
@@ -28,11 +25,11 @@ export default function GraphQlNoCachePage(): JSX.Element {
 			</div>
 
 			<div className="grid gap-6 md:grid-cols-2">
-				<Suspense fallback={<LoadingUsers />}>
+				<Suspense fallback={<Loading />}>
 					<UsersContainer />
 				</Suspense>
 
-				<Suspense fallback={<LoadingPosts />}>
+				<Suspense fallback={<Loading />}>
 					<PostsContainer />
 				</Suspense>
 			</div>

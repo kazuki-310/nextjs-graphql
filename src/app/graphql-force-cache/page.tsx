@@ -1,6 +1,6 @@
 import { type JSX, Suspense } from "react";
-import { LoadingCacheOptions } from "~/app/graphql-force-cache/_components/loading";
 import { UsersContainer } from "~/app/graphql-force-cache/_containers/users-container";
+import Loading from "~/app/graphql-force-cache/loading";
 
 export default function GraphQlForceCachePage(): JSX.Element {
 	return (
@@ -9,7 +9,7 @@ export default function GraphQlForceCachePage(): JSX.Element {
 				GraphQL Force Cache (Server Component)
 			</h1>
 
-			<Suspense fallback={<LoadingCacheOptions />}>
+			<Suspense fallback={<Loading />}>
 				<UsersContainer />
 			</Suspense>
 		</div>

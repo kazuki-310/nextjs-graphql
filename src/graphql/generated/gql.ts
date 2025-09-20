@@ -1,6 +1,6 @@
 /* eslint-disable */
 import * as types from './graphql';
-import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
+import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 
 /**
  * Map of all GraphQL operations in the project.
@@ -14,12 +14,16 @@ import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-
  * Learn more about it here: https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#reducing-bundle-size
  */
 type Documents = {
-    "query GetPosts {\n  posts {\n    id\n    title\n    content\n    author {\n      id\n      name\n      email\n    }\n    createdAt\n  }\n}\n\nquery GetPost($id: ID!) {\n  post(id: $id) {\n    id\n    title\n    content\n    author {\n      id\n      name\n      email\n    }\n    createdAt\n  }\n}": typeof types.GetPostsDocument,
-    "query GetUsers {\n  users {\n    id\n    name\n    email\n    createdAt\n  }\n}\n\nquery GetUser($id: ID!) {\n  user(id: $id) {\n    id\n    name\n    email\n    createdAt\n  }\n}": typeof types.GetUsersDocument,
+    "\n    query GetPost($id: ID!) {\n      post(id: $id) {\n        id\n        title\n        content\n        author {\n          id\n          name\n          email\n        }\n        createdAt\n      }\n    }\n  ": typeof types.GetPostDocument,
+    "\n    query GetPosts {\n      posts {\n        id\n        title\n        content\n        author {\n          id\n          name\n          email\n        }\n        createdAt\n      }\n    }\n  ": typeof types.GetPostsDocument,
+    "\n    query GetUser($id: ID!) {\n      user(id: $id) {\n        id\n        name\n        email\n        createdAt\n      }\n    }\n  ": typeof types.GetUserDocument,
+    "\n    query GetUsers {\n      users {\n        id\n        name\n        email\n        createdAt\n      }\n    }\n  ": typeof types.GetUsersDocument,
 };
 const documents: Documents = {
-    "query GetPosts {\n  posts {\n    id\n    title\n    content\n    author {\n      id\n      name\n      email\n    }\n    createdAt\n  }\n}\n\nquery GetPost($id: ID!) {\n  post(id: $id) {\n    id\n    title\n    content\n    author {\n      id\n      name\n      email\n    }\n    createdAt\n  }\n}": types.GetPostsDocument,
-    "query GetUsers {\n  users {\n    id\n    name\n    email\n    createdAt\n  }\n}\n\nquery GetUser($id: ID!) {\n  user(id: $id) {\n    id\n    name\n    email\n    createdAt\n  }\n}": types.GetUsersDocument,
+    "\n    query GetPost($id: ID!) {\n      post(id: $id) {\n        id\n        title\n        content\n        author {\n          id\n          name\n          email\n        }\n        createdAt\n      }\n    }\n  ": types.GetPostDocument,
+    "\n    query GetPosts {\n      posts {\n        id\n        title\n        content\n        author {\n          id\n          name\n          email\n        }\n        createdAt\n      }\n    }\n  ": types.GetPostsDocument,
+    "\n    query GetUser($id: ID!) {\n      user(id: $id) {\n        id\n        name\n        email\n        createdAt\n      }\n    }\n  ": types.GetUserDocument,
+    "\n    query GetUsers {\n      users {\n        id\n        name\n        email\n        createdAt\n      }\n    }\n  ": types.GetUsersDocument,
 };
 
 /**
@@ -39,11 +43,19 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "query GetPosts {\n  posts {\n    id\n    title\n    content\n    author {\n      id\n      name\n      email\n    }\n    createdAt\n  }\n}\n\nquery GetPost($id: ID!) {\n  post(id: $id) {\n    id\n    title\n    content\n    author {\n      id\n      name\n      email\n    }\n    createdAt\n  }\n}"): (typeof documents)["query GetPosts {\n  posts {\n    id\n    title\n    content\n    author {\n      id\n      name\n      email\n    }\n    createdAt\n  }\n}\n\nquery GetPost($id: ID!) {\n  post(id: $id) {\n    id\n    title\n    content\n    author {\n      id\n      name\n      email\n    }\n    createdAt\n  }\n}"];
+export function graphql(source: "\n    query GetPost($id: ID!) {\n      post(id: $id) {\n        id\n        title\n        content\n        author {\n          id\n          name\n          email\n        }\n        createdAt\n      }\n    }\n  "): (typeof documents)["\n    query GetPost($id: ID!) {\n      post(id: $id) {\n        id\n        title\n        content\n        author {\n          id\n          name\n          email\n        }\n        createdAt\n      }\n    }\n  "];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "query GetUsers {\n  users {\n    id\n    name\n    email\n    createdAt\n  }\n}\n\nquery GetUser($id: ID!) {\n  user(id: $id) {\n    id\n    name\n    email\n    createdAt\n  }\n}"): (typeof documents)["query GetUsers {\n  users {\n    id\n    name\n    email\n    createdAt\n  }\n}\n\nquery GetUser($id: ID!) {\n  user(id: $id) {\n    id\n    name\n    email\n    createdAt\n  }\n}"];
+export function graphql(source: "\n    query GetPosts {\n      posts {\n        id\n        title\n        content\n        author {\n          id\n          name\n          email\n        }\n        createdAt\n      }\n    }\n  "): (typeof documents)["\n    query GetPosts {\n      posts {\n        id\n        title\n        content\n        author {\n          id\n          name\n          email\n        }\n        createdAt\n      }\n    }\n  "];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n    query GetUser($id: ID!) {\n      user(id: $id) {\n        id\n        name\n        email\n        createdAt\n      }\n    }\n  "): (typeof documents)["\n    query GetUser($id: ID!) {\n      user(id: $id) {\n        id\n        name\n        email\n        createdAt\n      }\n    }\n  "];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n    query GetUsers {\n      users {\n        id\n        name\n        email\n        createdAt\n      }\n    }\n  "): (typeof documents)["\n    query GetUsers {\n      users {\n        id\n        name\n        email\n        createdAt\n      }\n    }\n  "];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

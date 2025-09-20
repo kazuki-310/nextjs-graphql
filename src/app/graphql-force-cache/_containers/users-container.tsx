@@ -4,10 +4,10 @@ import {
 	GetUsersDocument,
 	type GetUsersQuery,
 } from "~/graphql/generated/graphql";
-import { getClient } from "~/lib/apollo-client";
+import { query } from "~/lib/apollo-client";
 
 export async function UsersContainer(): Promise<JSX.Element> {
-	const { data, error } = await getClient().query<GetUsersQuery>({
+	const { data, error } = await query<GetUsersQuery>({
 		query: GetUsersDocument,
 		context: {
 			fetchOptions: {
