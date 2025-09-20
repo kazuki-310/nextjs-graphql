@@ -38,7 +38,7 @@ Apollo Client は Next.js の fetch オプションを以下のように設定�
 
 ```typescript
 // No Store パターン
-const { data, error } = await getClient().query<GetUsersQuery>({
+const { data, error } = await query<GetUsersQuery>({
   query: GetUsersDocument,
   context: {
     fetchOptions: {
@@ -48,7 +48,7 @@ const { data, error } = await getClient().query<GetUsersQuery>({
 });
 
 // Force Cache パターン
-const { data, error } = await getClient().query<GetUsersQuery>({
+const { data, error } = await query<GetUsersQuery>({
   query: GetUsersDocument,
   context: {
     fetchOptions: {
