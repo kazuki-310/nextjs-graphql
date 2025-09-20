@@ -2,6 +2,7 @@
 
 import { useQuery } from "@apollo/client/react";
 import type { JSX } from "react";
+import { UsersLoading } from "~/app/_components/users-loading";
 import { GET_USERS } from "~/app/_lib/users";
 import type {
 	GetUsersQuery,
@@ -15,16 +16,7 @@ export default function Page(): JSX.Element {
 	>(GET_USERS);
 
 	if (loading) {
-		return (
-			<div className="rounded bg-blue-100 p-4">
-				<div className="flex items-center space-x-2">
-					<div className="h-4 w-4 animate-spin rounded-full border-2 border-blue-600 border-t-transparent" />
-					<p className="font-semibold text-blue-800">
-						クライアントサイドでデータを取得中...
-					</p>
-				</div>
-			</div>
-		);
+		return <UsersLoading />;
 	}
 
 	if (error) {
