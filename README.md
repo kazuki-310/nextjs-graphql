@@ -3,9 +3,8 @@
 Next.js App Router と Apollo を使用した React Server Components で fetch を行うデモンストレーションです。
 
 - [demo](https://nextjs-graphql-xi.vercel.app/)
-
+- [apollo-client](https://www.apollographql.com/docs/react)
 - [apollo-client-integrations](https://github.com/apollographql/apollo-client-integrations/tree/main/packages/nextjs)
-
 - [@apollo/client-integration-nextjs Officially Released Lenz Weber-Tronic](https://www.apollographql.com/blog/apollo-client-integration-nextjs-officially-released)
 
 
@@ -15,7 +14,8 @@ Next.js App Router と Apollo を使用した React Server Components で fetch 
 - **Next.js** 15.5.0 (App Router)
 - **React** 19
 - **Apollo Client** 4.0.0
-- **GraphQL Code Generator** (型安全性)
+- **apollo/client-integration-nextjs** 16.6.0
+- **GraphQL Code Generator**
 - **TypeScript**
 - **Tailwind CSS**
 
@@ -31,7 +31,10 @@ Next.js App Router と Apollo を使用した React Server Components で fetch 
 - **動作**: データをキャッシュして再利用
 - **ビルド時の分類**: Static (○)
 
-## キャッシュ動作の比較Next.js App RouterでRSCからGraphQLを呼ぶ
+### `/client-fetch`
+- **動作**: useQuery フックを使ってクライアントサイドでデータを取得
+
+## キャッシュ動作の比較 Next.js App Router で RSC から GraphQLを呼ぶ
 ### Apollo Client との統合
 
 Apollo Client は Next.js の fetch オプションを以下のように設定します：
@@ -56,5 +59,8 @@ const { data, error } = await query<GetUsersQuery>({
     },
   },
 });
+
+// Client-side fetch パターン
+const { loading, error, data } = useQuery<GetUsersQuery, GetUsersQueryVariables>(GET_USERS);
 ```
 

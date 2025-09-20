@@ -14,6 +14,7 @@ export const { getClient, query, PreloadQuery } = registerApolloClient(() => {
 });
 
 // In Client Components and streaming SSR
+// CC で streaming SSR 使う場合は以下の設定が必要
 export function makeClient(): ApolloClient {
 	const httpLink = new HttpLink({
 		uri: env.NEXT_PUBLIC_API_URL,
