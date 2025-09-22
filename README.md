@@ -68,3 +68,5 @@ const { loading, error, data } = useQuery<GetUsersQuery, GetUsersQueryVariables>
 上記の方法は mutation は未検証です。
 client cache 周りの更新が難しい場合は以下の vercel が出してる template を参考にしてもいい
 https://github.com/vercel/commerce
+上記 repository を参考にもう少し工夫した記事
+https://zenn.dev/takumiyoshikawa/articles/07ea671817e6ae
