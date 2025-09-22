@@ -8,7 +8,6 @@ Next.js App Router と Apollo を使用した React Server Components で fetch 
 - [@apollo/client-integration-nextjs Officially Released Lenz Weber-Tronic](https://www.apollographql.com/blog/apollo-client-integration-nextjs-officially-released)
 
 
-
 ## 技術スタック
 
 - **Next.js** 15.5.0 (App Router)
@@ -64,3 +63,8 @@ const { data, error } = await query<GetUsersQuery>({
 const { loading, error, data } = useQuery<GetUsersQuery, GetUsersQueryVariables>(GET_USERS);
 ```
 
+
+### その他
+上記の方法は mutation は未検証です。
+client cache 周りの更新が難しい場合は以下の vercel が出してる template を参考にしてもいい
+https://github.com/vercel/commerce
