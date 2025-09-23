@@ -65,8 +65,13 @@ const { loading, error, data } = useQuery<GetUsersQuery, GetUsersQueryVariables>
 
 
 ### その他
-上記の方法は mutation は未検証です。
-client cache 周りの更新が難しい場合は以下の vercel が出してる template を参考にしてもいい
+上記の方法は mutation は未検証です。Server Actions で `getClient().mutation` を呼び出す方法は非推奨なのかもしれない。(https://github.com/apollographql/apollo-client-integrations/issues/78)もしかしたら問題なく動作するかもしれない。
+`useSuspenseQuery` で SSR して client cache させて、client 側で mutation する方針なのかな？これだと、 `getClient()`, `useSuspenseQuery` の使い分けが複雑になるのと、ちゃんと理解できてない人が使うと予期せぬエラーが起きそう。あとは、要件変更時に修正も大変になりそう。。
+
+別の対応方針としては以下の Vercel が出してる Template Repository を参考にしてもいい
 https://github.com/vercel/commerce
 上記 repository を参考にもう少し工夫した記事
 https://zenn.dev/takumiyoshikawa/articles/07ea671817e6ae
+
+以前試した Repository: https://github.com/kazuki-310/learn-nextjs-graphql
+deploy 先が Vercel なのでキャッシュ周りは問題なく動くが ECS だと機能はしないかもしれない。
